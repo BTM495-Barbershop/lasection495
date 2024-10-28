@@ -3,7 +3,7 @@ import re
 import random
 from datetime import datetime, timedelta
 
-# download cvs file from gitHub and replace it here
+# download csv file from gitHub and replace it here
 csv_file_path = '/Users/jayedahmed/Downloads/MOCK_DATA.csv'
 
 # loading user data from cvs file
