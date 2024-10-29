@@ -1,4 +1,4 @@
-userID,firstName,lastName,email,phoneNumber,userType,commissionRate,tipValue,hoursWorked
+userID,firstName,lastName,email,phoneNumber,userType,commissionRate,tipValue,hoursWorked,loyaltypoints
 3983320,Rickert,Shillabear,rshillabear0@arstechnica.com,821-193-6912,Employee - EXO,0.07,732.49,82
 1652350,Prudy,Bankes,pbankes1@hp.com,883-198-2894,Customer,0,,
 7366970,Mort,Grumble,mgrumble2@zdnet.com,427-165-1452,Customer,0,,
