@@ -17,6 +17,34 @@ df = df.fillna(" ")
 
 print(df)
 
+# Display the menu for location selection
+print("\nPlease enter the number corresponding to the location you want to book:")
+
+# List of locations corresponding to numbers 1 through 4
+locations = ["Old Port", "Downtown", "Cote Des Neiges"]
+
+# Print the locations with their corresponding numbers
+for i, location in enumerate(locations, start=1):
+    print(f"{i} - {location}")
+
+# Loop until a valid input is provided
+while True:
+    try:
+        # Get user input
+        location_number = int(input("Enter a number (1-3): "))
+        
+        # Check if the input is within the valid range
+        if 1 <= location_number <= 3:
+            selected_location = locations[location_number - 1]  # Adjust index to match user input
+            print(f"{selected_location} selected.")
+            break
+        else:
+            print("Error: Please enter a number between 1 and 3.")
+    
+    except ValueError:
+        print("Error: Invalid input. Please enter a numeric value.")
+
+
 # Display the menu for day selection
 print("\nPlease enter the number corresponding to the day you want to book:")
 
