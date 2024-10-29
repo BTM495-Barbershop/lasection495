@@ -1,3 +1,3 @@
-registration, loyalty points uses MOCK DATA Database
-Booking and Schedule uses Barber Schedule Database
-Inventory management uses
+registration, loyalty points uses MOCK DATA Database/
+Booking and Schedule uses Barber Schedule Database/
+Inventory management uses/
