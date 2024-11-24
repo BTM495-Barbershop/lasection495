@@ -1,10 +1,12 @@
 import sqlite3
 import pandas as pd
 
+# Update the path to point to your database file
+DB_PATH = "C:/Users/jonat/Downloads/EmployeeDatabase.db"
 
 def load_data(userID):
     # Connect to the database
-    conn = sqlite3.connect('EmployeeDatabase.db')
+    conn = sqlite3.connect(DB_PATH)
 
     # Ensure userID is an integer for SQL query
     try:
@@ -58,6 +60,6 @@ def main():
     # Display the amount of pay
     print(f"The barber's total salary is: ${salary:.2f}")
 
-
 if __name__ == "__main__":
     main()
+
