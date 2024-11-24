@@ -1,8 +1,25 @@
+import sqlite3
 import pandas as pd
 
-def load_data():
-    data = pd.read_csv('MOCK_DATA.csv')
-    return data
+
+def load_data(userID):
+    # Connect to the database
+    conn = sqlite3.connect('EmployeeDatabase.db')
+
+    # Ensure userID is an integer for SQL query
+    try:
+        userID = int(userID)
+    except ValueError:
+        raise ValueError("User ID must be a valid integer.")
+
+    # Query the database to get the specific barber's data
+    query = "SELECT * FROM Employees WHERE userID = ?"
+    barber_data = pd.read_sql_query(query, conn, params=(userID,))
+
+    # Close the database connection
+    conn.close()
+    return barber_data
+
 
 def get_sales_value():
     try:
@@ -11,15 +28,17 @@ def get_sales_value():
         print("Invalid input for sales. Please enter a number.")
         return get_sales_value()
 
-def main():
-    # Load data from CSV
-    data = load_data()
 
+def main():
     # Get barber userID
     userID = input("Enter user ID: ")
 
-    # Filter data by userID
-    barber_data = data[data['userID'] == int(userID)]
+    # Load data for the given userID from the database
+    try:
+        barber_data = load_data(userID)
+    except ValueError as e:
+        print(e)
+        return
 
     if barber_data.empty:
         print("User ID not found.")
@@ -34,10 +53,11 @@ def main():
     sales_value = get_sales_value()
 
     # Calculate total salary
-    salary = (sales_value * commission_rate) + tip_value + (hours_worked *10)
+    salary = (sales_value * commission_rate) + tip_value + (hours_worked * 10)
 
     # Display the amount of pay
     print(f"The barber's total salary is: ${salary:.2f}")
+
 
 if __name__ == "__main__":
     main()
