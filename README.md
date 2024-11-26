@@ -6,4 +6,4 @@ Booking&Registration.py uses the following database:
 \
 AdminstrativeTask.py uses the following database:
 - Inventory.db
-- Commission.db
+- EmployeeDatabase.db
